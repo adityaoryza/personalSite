@@ -110,7 +110,7 @@ const Content = () => {
               key={idx}
               className={classNames(
                 'rounded-xl bg-white p-3',
-                'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                'ring-white/60 ring-offset-2 ring-offset-blue-4   00 focus:outline-none focus:ring-2'
               )}
             >
               <ul>
@@ -145,9 +145,56 @@ const Content = () => {
           ))}
         </Tab.Panels> */}
 
+<Tab.Panels className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 mt-3">
+  {Object.values(categories).map((posts, idx) => (
+    <Tab.Panel
+      key={idx}
+      className={classNames(
+        'rounded-xl bg-white p-3',
+        'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+        'lg:col-span-6' // Added this class to take up 6 columns on large screens
+      )}
+    >
+      <div className="flex justify-center">
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            className="relative rounded-md p-3 hover:bg-gray-100 w-full"
+          >
+            {/* Add an image element */}
+            <img
+              src={post.imageUrl} // Replace with the actual image URL in your data
+              alt={post.title}
+              className="w-full h-auto rounded-md mb-2"
+            />
+
+            <h3 className="text-sm font-medium leading-5">
+              {post.title}
+            </h3>
+
+            <div className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+              <div>{post.date}</div>
+              <div>&middot;</div>
+              <div>{post.commentCount} comments</div>
+              <div>&middot;</div>
+              <div>{post.shareCount} shares</div>
+            </div>
+
+            <a
+              href="#"
+              className={classNames(
+                'absolute inset-0 rounded-md',
+                'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
+              )}
+            />
+          </div>
+        ))}
+      </div>
+    </Tab.Panel>
+  ))}
+</Tab.Panels>
+
       
-
-
       
 
       </Tab.Group>
