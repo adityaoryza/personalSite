@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.selected-tab {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+   }
+   
+   .unselected-tab {
+    color: #888;
+   }
