@@ -36,7 +36,7 @@ const actions = [
   ]
 const Footer = () => {
  return (
-     <footer className="">
+     <footer className="md:px-24 px-12 pt-12 md:pt-24 pb-12 lg:px-48">
      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
          <div className="flex justify-center space-x-6 md:order-2">
              {actions.map((item) => (

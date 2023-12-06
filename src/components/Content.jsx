@@ -40,6 +40,30 @@ const Content = () => {
         shareCount: 2,
         imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: '2h ago',
+        commentCount: 3,
+        shareCount: 2,
+        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: '2h ago',
+        commentCount: 3,
+        shareCount: 2,
+        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: '2h ago',
+        commentCount: 3,
+        shareCount: 2,
+        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      },
     ],
     Popular: [
       {
@@ -84,7 +108,7 @@ const Content = () => {
   })
 
   return (
-    <div className="w-full  px-2 py-16 sm:px-0">
+    <div className="md:px-24 px-12 pt-12 md:pt-24 pb-12 lg:px-48">
       <Tab.Group>
         <Tab.List className="flex space-x-1  p-1">
           {Object.keys(categories).map((category) => (
@@ -104,32 +128,36 @@ const Content = () => {
           ))}
         </Tab.List>
         
-        {/* <Tab.Panels className="mt-2">
+        <Tab.Panels className="w-full">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel
               key={idx}
               className={classNames(
-                'rounded-xl bg-white p-3',
-                'ring-white/60 ring-offset-2 ring-offset-blue-4   00 focus:outline-none focus:ring-2'
               )}
             >
-              <ul>
+              <div className="grid grid-cols-2 gap-4">
                 {posts.map((post) => (
-                  <li
+                  <div
                     key={post.id}
-                    className="relative rounded-md p-3 hover:bg-gray-100"
+                    className="relative rounded-md p-3 hover:bg-gray-100 w-full"
                   >
+                    <img
+                      src={post.imageUrl} 
+                      alt={post.title}
+                      className="w-full h-auto rounded-md mb-2"
+                    />
+
                     <h3 className="text-sm font-medium leading-5">
                       {post.title}
                     </h3>
 
-                    <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                      <li>{post.date}</li>
-                      <li>&middot;</li>
-                      <li>{post.commentCount} comments</li>
-                      <li>&middot;</li>
-                      <li>{post.shareCount} shares</li>
-                    </ul>
+                    <div className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+                      <div>{post.date}</div>
+                      <div>&middot;</div>
+                      <div>{post.commentCount} comments</div>
+                      <div>&middot;</div>
+                      <div>{post.shareCount} shares</div>
+                    </div>
 
                     <a
                       href="#"
@@ -138,61 +166,12 @@ const Content = () => {
                         'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
                       )}
                     />
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </Tab.Panel>
           ))}
-        </Tab.Panels> */}
-
-<Tab.Panels className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 mt-3">
-  {Object.values(categories).map((posts, idx) => (
-    <Tab.Panel
-      key={idx}
-      className={classNames(
-        'rounded-xl bg-white p-3',
-        'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-        'lg:col-span-6' // Added this class to take up 6 columns on large screens
-      )}
-    >
-      <div className="flex justify-center">
-        {posts.map((post) => (
-          <div
-            key={post.id}
-            className="relative rounded-md p-3 hover:bg-gray-100 w-full"
-          >
-            {/* Add an image element */}
-            <img
-              src={post.imageUrl} // Replace with the actual image URL in your data
-              alt={post.title}
-              className="w-full h-auto rounded-md mb-2"
-            />
-
-            <h3 className="text-sm font-medium leading-5">
-              {post.title}
-            </h3>
-
-            <div className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-              <div>{post.date}</div>
-              <div>&middot;</div>
-              <div>{post.commentCount} comments</div>
-              <div>&middot;</div>
-              <div>{post.shareCount} shares</div>
-            </div>
-
-            <a
-              href="#"
-              className={classNames(
-                'absolute inset-0 rounded-md',
-                'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
-              )}
-            />
-          </div>
-        ))}
-      </div>
-    </Tab.Panel>
-  ))}
-</Tab.Panels>
+        </Tab.Panels>
 
       
       
