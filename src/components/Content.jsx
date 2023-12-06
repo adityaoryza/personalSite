@@ -23,49 +23,9 @@ const Content = () => {
         commentCount: 3,
         shareCount: 2,
         imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-        imageUrl: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      },
+      }
     ],
-    Popular: [
+    Hobby: [
       {
         id: 1,
         title: 'Is tech making coffee better or worse?',
@@ -85,7 +45,7 @@ const Content = () => {
 
       },
     ],
-    Trending: [
+    Projects: [
       {
         id: 1,
         title: 'Ask Me Anything: 10 answers to your questions about coffee',
@@ -127,7 +87,7 @@ const Content = () => {
             </Tab>
           ))}
         </Tab.List>
-        
+
         <Tab.Panels className="w-full">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel
@@ -135,14 +95,14 @@ const Content = () => {
               className={classNames(
               )}
             >
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4 sm:grid-cols-2">
                 {posts.map((post) => (
                   <div
                     key={post.id}
                     className="relative rounded-md p-3 hover:bg-gray-100 w-full"
                   >
                     <img
-                      src={post.imageUrl} 
+                      src={post.imageUrl}
                       alt={post.title}
                       className="w-full h-auto rounded-md mb-2"
                     />
@@ -151,30 +111,20 @@ const Content = () => {
                       {post.title}
                     </h3>
 
-                    <div className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                      <div>{post.date}</div>
-                      <div>&middot;</div>
-                      <div>{post.commentCount} comments</div>
-                      <div>&middot;</div>
-                      <div>{post.shareCount} shares</div>
-                    </div>
-
-                    <a
-                      href="#"
+                    {/* <a
+                      href="github.com"
                       className={classNames(
                         'absolute inset-0 rounded-md',
                         'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
                       )}
-                    />
+                    /> */}
                   </div>
                 ))}
               </div>
+
             </Tab.Panel>
           ))}
         </Tab.Panels>
-
-      
-      
 
       </Tab.Group>
     </div>
